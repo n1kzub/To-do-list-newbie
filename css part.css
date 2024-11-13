@@ -1,0 +1,59 @@
+  * { box-sizing: border-box; 
+    } /* include padding and border in total width and lenght */
+    h1 { 
+        color: rgb(139, 67, 0);
+        position: relative;
+    }
+
+    body { min-width: 500px; }
+
+    ol { padding: 2%;
+        margin: 0;
+         
+    } /* padding and margins for the list */
+    
+    ol li { 
+        position: relative;
+        padding: 10px; 
+    }
+    
+    ol li:nth-child(even) {
+        background: rgb(185, 141, 97);
+    }
+    
+    ol li:hover {
+        background: rgb(138, 112, 72);
+    } /*finish styling items */
+    
+    .close {
+        position: absolute;
+        right: 0%;
+        padding-right: 3%;
+    } /*close button */
+
+    .delete-btn {
+        right: 0%;
+        padding-right: 3%;
+        position: absolute;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: 0.1s ease;
+    } /*close button for new items */
+
+    .delete-btn:hover {
+        transform: scale(1.1);
+        border-color: black;
+    }
+
+    body {
+        background-image: url("https://s3.envato.com/files/427069113/LEE07097.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+    }
+
+    .complete {
+        text-decoration: line-through;
+    }
+     
