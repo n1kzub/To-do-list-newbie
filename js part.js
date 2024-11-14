@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const preExistingItems = document.querySelectorAll('#todoList li');
     preExistingItems.forEach(item => {
         const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'X'; 
+        deleteButton.textContent = 'x'; 
         deleteButton.classList.add('delete-btn'); 
         deleteButton.addEventListener('click', function () {
             item.remove();
@@ -20,7 +20,7 @@ var close = document.querySelectorAll('.close').forEach(button => {
 const checkboxes = document.querySelectorAll('.todo-checkbox');
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', function () {
-        if (this.Checked) {
+        if (this.checked) {
             this.parentElement.classList.add('complete');
         } else {
             this.parentElement.classList.remove('complete');
@@ -29,10 +29,10 @@ checkboxes.forEach(checkbox => {
 }); // add a 'Check' button for every item and checks it on click 
 
 document.getElementById('todoInput').addEventListener('keydown', function(event) {
-if (event.key === 'Enter') {
-    addItem();
-}
-}); // pressing Enter to enter the new item
+    if (event.key === 'Enter') {
+        addItem();
+    }
+    }); // pressing Enter to enter the new item
 
 function addItem() {
 const input = document.getElementById('todoInput');
@@ -41,16 +41,21 @@ const itemText = input.value.trim(); // gets value from input
 if (itemText) {
     const li = document.createElement('li'); //each value becomes list element
 
+    const contentDiv = document.createElement('div');
+    contentDiv.classList.add('content-div');
+
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.classList.add('todo-checkbox');
-    li.appendChild(checkbox); // creates checkbox for each item added
+    contentDiv.appendChild(checkbox); // creates checkbox for each item added
 
     const text = document.createTextNode(itemText);
-    li.appendChild(text); // creates and appends task text
-   
+    contentDiv.appendChild(text); // creates and appends task text
+    
+    li.appendChild(contentDiv);
+
     const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'X'; 
+    deleteButton.textContent = 'x'; 
     deleteButton.classList.add('delete-btn'); 
     li.appendChild(deleteButton); // creates delete button for each item added
 
@@ -72,6 +77,7 @@ if (itemText) {
     }); // event listener for checkbox to toggle completed style
 
   } else {
-      alert("Please enter task");
+      console.log("Please enter task");
   }
-} //adding the option of adding items to the list
+} //adding the option of adding items to the list 
+    
