@@ -1,32 +1,38 @@
 document.addEventListener('DOMContentLoaded', function () {
+    initializeExistingItems();
+});
+
+function initializeExistingItems() {
     const preExistingItems = document.querySelectorAll('#todoList li');
-    preExistingItems.forEach(item => {
-        const deleteButton = document.createElement('button');
+    preExistingItems.forEach(addDeleteAndCheckbox); 
+}
+
+function addDeleteAndCheckbox(item) {
+    const deleteButton = document.createElement('button');
         deleteButton.textContent = 'x'; 
         deleteButton.classList.add('delete-btn'); 
         deleteButton.addEventListener('click', function () {
             item.remove();
         });
-        item.appendChild(deleteButton);
-    })
-}); // adds a delete button to all the items
+        item.appendChild(deleteButton); // adds a delete button to all the items
+
+        const checkboxes = document.querySelectorAll('.todo-checkbox');
+        checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+              this.parentElement.classList.add('complete');
+            } else {
+              this.parentElement.classList.remove('complete');
+            };
+        });
+        });// add a 'Check' button for every item and checks it on click 
+} 
 
 var close = document.querySelectorAll('.close').forEach(button => {
     button.onclick = function () {
         this.parentElement.style.display = "none";
     }
 }); // handles the close button
-
-const checkboxes = document.querySelectorAll('.todo-checkbox');
-checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', function () {
-        if (this.checked) {
-            this.parentElement.classList.add('complete');
-        } else {
-            this.parentElement.classList.remove('complete');
-        };
-    });
-}); // add a 'Check' button for every item and checks it on click 
 
 document.getElementById('todoInput').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
