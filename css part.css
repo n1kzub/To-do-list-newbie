@@ -3,18 +3,29 @@
     h1 { 
         color: rgb(139, 67, 0);
         position: relative;
+        text-align: center;
     }
 
-    body { min-width: 500px; }
+    body { 
+        min-width: 500px; 
+        background-image: url("https://s1.picswalls.com/wallpapers/2016/06/06/beach-wallpapers_090611978_305.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+    }
 
-    ol { padding: 2%;
-        margin: 0;
-         
+    ol { 
+        padding: 2%;
+        margin-left: 20%;
+        margin-right: 20%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+                    0 6px 20px 0 rgba(0, 0, 0, 0.19);
     } /* padding and margins for the list */
     
     ol li { 
         position: relative;
-        padding: 10px; 
+        padding: 10px;
+        display: flex; 
     }
     
     ol li:nth-child(even) {
@@ -23,37 +34,47 @@
     
     ol li:hover {
         background: rgb(138, 112, 72);
-    } /*finish styling items */
+    } /* finish styling items */
     
-    .close {
-        position: absolute;
-        right: 0%;
-        padding-right: 3%;
-    } /*close button */
-
     .delete-btn {
         right: 0%;
         padding-right: 3%;
-        position: absolute;
         background: none;
-        border: none;
         cursor: pointer;
         transition: 0.1s ease;
-    } /*close button for new items */
+        padding: 2px 5px;
+        position: absolute;
+    } /* close button for new items */
 
     .delete-btn:hover {
         transform: scale(1.1);
         border-color: black;
     }
 
-    body {
-        background-image: url("https://s3.envato.com/files/427069113/LEE07097.jpg");
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        background-attachment: fixed;
-    }
-
     .complete {
         text-decoration: line-through;
     }
-     
+
+    .content-div {
+        display: flex;
+        gap: 5px;
+    }
+
+    .todoInput {
+        color: black;
+        display: block;
+        justify-content: center;
+        margin: 0 auto;
+        border-radius: 5px;
+        border-width: 1px;
+        border-style: solid;
+        background-color: transparent;
+        text-align: center;
+        box-shadow: 0 4px 15px 0 rgb(0, 0, 0);
+        
+     }
+    
+    .todoInput::placeholder {
+        color: black;
+    }
+
